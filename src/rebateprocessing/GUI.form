@@ -25,33 +25,82 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="phoneNumber" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="city" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="state" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="zipCode" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="addressLine2" max="32767" attributes="0"/>
-                      <Component id="addressLine1" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="firstName" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="middleInitial" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="addressLine1Label" max="32767" attributes="0"/>
+                      <Component id="jLabel2" max="32767" attributes="0"/>
+                      <Component id="cityLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="emailAddress" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                  <Component id="zipCodeLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="eMailLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="firstNameLabel" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lastName" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="POAattached" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="dateReceived" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="city" min="-2" pref="76" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="stateLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="state" min="-2" pref="57" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="zipCode" min="-2" pref="112" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="firstName" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="middleInitialLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="middleInitial" min="-2" pref="31" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="lastNameLabel" min="-2" pref="63" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                                      <Component id="POAattached" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lastName" min="-2" pref="91" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="emailAddress" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="addressLine1" min="-2" pref="197" max="-2" attributes="0"/>
+                                      <Component id="addressLine2" min="-2" pref="197" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="dateReceived" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="phoneNumber" min="-2" pref="112" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,95 +112,146 @@
                   <Component id="firstName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lastName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="middleInitial" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="middleInitialLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="addressLine1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="addressLine1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addressLine1Label" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="addressLine2" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="addressLine2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="city" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="state" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="zipCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="stateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="POAattached" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="zipCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="zipCodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="phoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="POAattached" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="emailAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="eMailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dateReceived" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="103" max="32767" attributes="0"/>
+              <EmptySpace pref="117" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="firstName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="lastName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="middleInitial">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="middleInitialActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="addressLine1">
+    </Component>
+    <Component class="javax.swing.JTextField" name="addressLine2">
+    </Component>
+    <Component class="javax.swing.JTextField" name="city">
+    </Component>
+    <Component class="javax.swing.JTextField" name="state">
+    </Component>
+    <Component class="javax.swing.JTextField" name="zipCode">
+    </Component>
+    <Component class="javax.swing.JTextField" name="phoneNumber">
+    </Component>
+    <Component class="javax.swing.JTextField" name="emailAddress">
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="POAattached">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Proof of Address Attached"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="dateReceived">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dateReceivedActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="firstNameLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="First Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="lastName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Last Name"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="middleInitial">
+    <Component class="javax.swing.JLabel" name="middleInitialLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Middle Initial"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="addressLine1">
+    <Component class="javax.swing.JLabel" name="lastNameLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Last Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date Received"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="eMailLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="eMail"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="addressLine1Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="Address Line 1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="addressLine2">
+    <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Address Line 2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="city">
+    <Component class="javax.swing.JLabel" name="cityLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="City"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="state">
+    <Component class="javax.swing.JLabel" name="stateLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="State"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="zipCode">
+    <Component class="javax.swing.JLabel" name="zipCodeLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Zip Code"/>
+        <Property name="text" type="java.lang.String" value="zip code"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="phoneNumber">
+    <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Phone Number"/>
+        <Property name="text" type="java.lang.String" value="phone"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="emailAddress">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Email"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JToggleButton" name="POAattached">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Proof of Address Attached (Y/N)"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="dateReceived">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Date Received"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dateReceivedActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
