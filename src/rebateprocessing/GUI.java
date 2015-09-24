@@ -80,6 +80,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         POAattached.setText("Proof of Address Attached");
+        POAattached.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                POAattachedActionPerformed(evt);
+            }
+        });
 
         dateReceived.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,8 +117,18 @@ public class GUI extends javax.swing.JFrame {
         pageHeading.setText("REBATE PROCESSING TOOL");
 
         addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
 
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
 
@@ -191,15 +206,13 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(168, 168, 168)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deleteButton)
+                    .addComponent(searchButton)
+                    .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelButton))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -246,14 +259,15 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(eMailLabel)
                     .addComponent(jLabel1)
                     .addComponent(dateReceived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchButton)
-                    .addComponent(editButton)
-                    .addComponent(deleteButton))
-                .addGap(9, 9, 9)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
+                    .addComponent(searchButton))
+                .addGap(10, 10, 10)
+                .addComponent(editButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteButton)
                     .addComponent(cancelButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -278,6 +292,43 @@ public class GUI extends javax.swing.JFrame {
     private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        // TODO add your handling code here:
+        /*get all the data from the text fields from here
+        make an object of AppDataModel class
+        initialize this object with data read from the fields
+        pass this object to the RebateProcessing class (controller) */
+        
+        //first create object of AppDataModel class
+        AppDataModel appDataModel = new AppDataModel();
+        
+        //now feed this object with the input values
+        appDataModel.setLastName(lastName.getText());
+        appDataModel.setFirstName(firstName.getText());
+        appDataModel.setMInitial(middleInitial.getText());
+        appDataModel.setAddrLine1(addressLine1.getText());
+        appDataModel.setAddrLine2(addressLine2.getText());
+        appDataModel.setCity(city.getText());
+        appDataModel.setState(state.getText());
+        appDataModel.setZipCode(zipCode.getText());
+        appDataModel.setPhone(phoneNumber.getText());
+        appDataModel.setEmail(emailAddress.getText());
+        appDataModel.setDateReceived(dateReceived.getText());
+        appDataModel.setPoa(POAattached.isSelected());
+        
+        //pass this object to the controller (RebateProcessing)
+                
+        
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void POAattachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_POAattachedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_POAattachedActionPerformed
 
     /**
      * @param args the command line arguments

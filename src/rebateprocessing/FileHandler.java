@@ -9,13 +9,11 @@ package rebateprocessing;
  *
  * @author achaturvedi
  */
-public class RebateProcessing {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class FileHandler {
+    boolean addDataToFile(AppDataModel appDataModel) {
+        //write file handling specific functions
+        
+        //if written correctly, then 
+        return true;
     }
-    
 }
