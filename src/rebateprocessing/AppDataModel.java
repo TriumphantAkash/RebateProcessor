@@ -27,6 +27,8 @@ public class AppDataModel {
         AppDataModel appDataModel = new AppDataModel();
     }
     
+    
+    //setters
     public void setFirstName(String firstName){
         this.firstName = firstName;
     }
@@ -63,4 +65,19 @@ public class AppDataModel {
     public void setPoa(boolean poa){
         this.poa = poa;
     }
+    
+    
+    //getters
+    public String getFirstName(){
+        return this.firstName;
+    }
+    
+    public String getMInitial() {
+        return this.mInitial;
+    }
+    
+     public String getLastName() {
+        return this.lastName;
+    }
+    
 }
