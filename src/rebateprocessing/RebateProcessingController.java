@@ -18,9 +18,14 @@ public class RebateProcessingController {
     
  //this function will first check the validity of data, then pass it to File handler class   
  boolean addData(AppDataModel appDataModel) {
-     //validate the data, if ok then call addData function in the FileHandler class
+     //validate the data, if validation issues then return false from here itself 
+     
+     
+     //if validation ok then call addData function in the FileHandler class
      FileHandler fileHandler = new FileHandler();
      return fileHandler.addDataToFile(appDataModel);
+     
+     
  }
 
    

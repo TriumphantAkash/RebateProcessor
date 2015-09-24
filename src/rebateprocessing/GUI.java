@@ -317,7 +317,8 @@ public class GUI extends javax.swing.JFrame {
         appDataModel.setDateReceived(dateReceived.getText());
         appDataModel.setPoa(POAattached.isSelected());
         
-        //pass this object to the controller (RebateProcessing)
+        //pass this object to the controller (RebateProcessingController class)
+        RebateProcessingController rebateProcessingController = new RebateProcessingController();
                 
         
     }//GEN-LAST:event_addButtonActionPerformed
