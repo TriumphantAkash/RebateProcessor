@@ -76,8 +76,43 @@ public class AppDataModel {
         return this.mInitial;
     }
     
-     public String getLastName() {
+    public String getLastName() {
         return this.lastName;
     }
     
+    public String getAddrLine1() {
+        return this.addrLine1;
+    }
+    
+    public String getAddrLine2() {
+        return this.addrLine2;
+    }
+    
+    public String getCity() {
+        return this.city;
+    }
+    
+    public String getState() {
+        return this.state;
+    }
+    
+    public String getZipCode() {
+        return this.zipCode;
+    }
+    
+    public String getPhone() {
+        return this.phone;
+    }
+    
+    public String getEmail() {
+        return this.email;
+    }
+    
+    public String getDateReceived() {
+        return this.dateReceived;
+    }
+    
+    public boolean getPoa() {
+        return this.poa;
+    }
 }
