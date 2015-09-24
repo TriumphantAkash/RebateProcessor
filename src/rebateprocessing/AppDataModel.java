@@ -23,12 +23,8 @@ public class AppDataModel {
     private String dateReceived;
     private boolean poa;
     
-    AppDataModel(){
-        AppDataModel appDataModel = new AppDataModel();
-    }
     
-    
-    //setters
+//setters
     public void setFirstName(String firstName){
         this.firstName = firstName;
     }
