@@ -53,6 +53,9 @@ public class GUI extends javax.swing.JFrame {
         zipCodeLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         pageHeading = new javax.swing.JLabel();
+        submitButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,6 +108,12 @@ public class GUI extends javax.swing.JFrame {
         jLabel3.setText("phone");
 
         pageHeading.setText("REBATE PROCESSING TOOL");
+
+        submitButton.setText("Submit");
+
+        searchButton.setText("Search");
+
+        cancelButton.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,6 +183,14 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(168, 168, 168)
+                .addComponent(submitButton)
+                .addGap(31, 31, 31)
+                .addComponent(searchButton)
+                .addGap(35, 35, 35)
+                .addComponent(cancelButton)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +234,12 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(eMailLabel)
                     .addComponent(jLabel1)
                     .addComponent(dateReceived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitButton)
+                    .addComponent(searchButton)
+                    .addComponent(cancelButton))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pageHeading.setFont(new Font("Courier New", Font.BOLD, 18));
@@ -281,6 +303,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField addressLine1;
     private javax.swing.JLabel addressLine1Label;
     private javax.swing.JTextField addressLine2;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JTextField city;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField dateReceived;
@@ -297,8 +320,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel middleInitialLabel;
     private javax.swing.JLabel pageHeading;
     private javax.swing.JTextField phoneNumber;
+    private javax.swing.JButton searchButton;
     private javax.swing.JTextField state;
     private javax.swing.JLabel stateLabel;
+    private javax.swing.JButton submitButton;
     private javax.swing.JTextField zipCode;
     private javax.swing.JLabel zipCodeLabel;
     // End of variables declaration//GEN-END:variables
