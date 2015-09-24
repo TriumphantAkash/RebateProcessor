@@ -53,9 +53,11 @@ public class GUI extends javax.swing.JFrame {
         zipCodeLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         pageHeading = new javax.swing.JLabel();
-        submitButton = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
         searchButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,11 +111,15 @@ public class GUI extends javax.swing.JFrame {
 
         pageHeading.setText("REBATE PROCESSING TOOL");
 
-        submitButton.setText("Submit");
+        addButton.setText("Add");
 
         searchButton.setText("Search");
 
         cancelButton.setText("Cancel");
+
+        editButton.setText("Edit");
+
+        deleteButton.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,18 +191,24 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(168, 168, 168)
-                .addComponent(submitButton)
-                .addGap(31, 31, 31)
-                .addComponent(searchButton)
-                .addGap(35, 35, 35)
-                .addComponent(cancelButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteButton))
+                    .addComponent(cancelButton))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(5, 5, 5)
                 .addComponent(pageHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(middleInitial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,12 +246,16 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(eMailLabel)
                     .addComponent(jLabel1)
                     .addComponent(dateReceived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton)
                     .addComponent(searchButton)
+                    .addComponent(editButton)
+                    .addComponent(deleteButton))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addButton)
                     .addComponent(cancelButton))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pageHeading.setFont(new Font("Courier New", Font.BOLD, 18));
@@ -300,6 +316,7 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton POAattached;
+    private javax.swing.JButton addButton;
     private javax.swing.JTextField addressLine1;
     private javax.swing.JLabel addressLine1Label;
     private javax.swing.JTextField addressLine2;
@@ -307,7 +324,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField city;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField dateReceived;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JLabel eMailLabel;
+    private javax.swing.JButton editButton;
     private javax.swing.JTextField emailAddress;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel firstNameLabel;
@@ -323,7 +342,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField state;
     private javax.swing.JLabel stateLabel;
-    private javax.swing.JButton submitButton;
     private javax.swing.JTextField zipCode;
     private javax.swing.JLabel zipCodeLabel;
     // End of variables declaration//GEN-END:variables
