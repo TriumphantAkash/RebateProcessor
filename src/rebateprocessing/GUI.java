@@ -5,6 +5,7 @@
  */
 package rebateprocessing;
 
+
 import java.awt.Font;
 
 /**
@@ -319,6 +320,7 @@ public class GUI extends javax.swing.JFrame {
         
         //pass this object to the controller (RebateProcessingController class)
         RebateProcessingController rebateProcessingController = new RebateProcessingController();
+        rebateProcessingController.addData(appDataModel);
                 
         
     }//GEN-LAST:event_addButtonActionPerformed

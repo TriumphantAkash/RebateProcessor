@@ -23,7 +23,7 @@ public class RebateProcessingController {
      
      //if validation ok then call addData function in the FileHandler class
      FileHandler fileHandler = new FileHandler();
-     return fileHandler.addDataToFile(appDataModel);
+     return fileHandler.writeData(appDataModel);
      
      
  }
