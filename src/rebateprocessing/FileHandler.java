@@ -7,6 +7,7 @@ package rebateprocessing;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -17,12 +18,14 @@ import java.io.IOException;
  * @author achaturvedi
  */
 public class FileHandler {
-    private String fileName;
-    FileHandler(){
-        fileName = "temp.txt";
+      
+    private File fileInstance;
+    
+    FileHandler() {
+        fileInstance = GlobalFileManager.getFileInstance();
     }
     
-    boolean writeData(AppDataModel appDataModel) {
+    public static boolean writeData(AppDataModel appDataModel) {
         //write file handling specific functions
         String data = appDataModel.getFirstName()
                 +"\t"
@@ -51,7 +54,7 @@ public class FileHandler {
         try {
             // Assume default encoding.
             FileWriter fileWriter =
-                new FileWriter(fileName);
+                new FileWriter(fileInstance);
 
             // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter =
@@ -68,7 +71,7 @@ public class FileHandler {
         catch(IOException ex) {
             System.out.println(
                 "Error writing to file '"
-                + fileName + "'");
+                + fileInstance + "'");
             return false;
             // Or we could just do this:
             // ex.printStackTrace();
@@ -84,7 +87,7 @@ public class FileHandler {
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
-                new FileReader(fileName);
+                new FileReader(fileInstance);
 
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = 
@@ -100,13 +103,13 @@ public class FileHandler {
         } catch(FileNotFoundException ex) {
             System.out.println(
                 "Unable to open file '" + 
-                fileName + "'"); 
+                fileInstance + "'"); 
             return null;
         }
         catch(IOException ex) {
             System.out.println(
                 "Error reading file '" 
-                + fileName + "'");                  
+                + fileInstance + "'");                  
             // Or we could just do this: 
             // ex.printStackTrace();
             return null;

@@ -320,7 +320,11 @@ public class GUI extends javax.swing.JFrame {
         
         //pass this object to the controller (RebateProcessingController class)
         RebateProcessingController rebateProcessingController = new RebateProcessingController();
-        rebateProcessingController.addData(appDataModel);
+        if (rebateProcessingController.addData(appDataModel)) {
+            System.out.println("data written in file");
+        }else {
+            System.out.println("something went wrong while writing data to file");
+        }
                 
         
     }//GEN-LAST:event_addButtonActionPerformed

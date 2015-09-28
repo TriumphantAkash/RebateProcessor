@@ -10,11 +10,20 @@
 */
 package rebateprocessing;
 
+import java.io.File;
+
 /**
  *
  * @author achaturvedi
  */
 public class RebateProcessingController {
+    private File fileInstance;
+    
+    public RebateProcessingController() {
+        fileInstance = GlobalFileManager.getFileInstance();
+    }
+    
+    
     
  //this function will first check the validity of data, then pass it to File handler class   
  boolean addData(AppDataModel appDataModel) {
@@ -22,8 +31,8 @@ public class RebateProcessingController {
      
      
      //if validation ok then call addData function in the FileHandler class
-     FileHandler fileHandler = new FileHandler();
-     return fileHandler.writeData(appDataModel);
+    // FileHandler fileHandler = new FileHandler();
+     return FileHandler.writeData(appDataModel);
      
      
  }
