@@ -167,6 +167,16 @@ class FileHandler {
             bufferedReader.close();
             bufferedWriter.close();
             
+            /*delete old file and rename the new file to old file name*/
+            File file = new File(FILE_NAME);
+            file.delete();
+            
+            File newFile = new File(TEMP_FILE);
+            if (newFile.exists()) {
+                newFile.renameTo(file);
+            }
+            
+            
            
        }catch(FileNotFoundException ex) {
             System.out.println(
