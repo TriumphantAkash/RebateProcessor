@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -116,6 +117,67 @@ class FileHandler {
         
         return appData;
     }
+   
+   /*called by GUI as soon as program loads, cuz GUI needs this data to show in the Dropdown for phone numenr and name*/
+   public static ArrayList<AppDataModel> loadAllData () {
+       ArrayList<AppDataModel> appDataList = new ArrayList();
+       /* a temporary variables */
+       AppDataModel appData;
+       String[] allFields = new String[12];
+       
+       /**/
+       try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = 
+                new FileReader(FILE_NAME);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = 
+                new BufferedReader(fileReader);
+            String line;
+            
+            while((line = bufferedReader.readLine()) != null) {
+                //System.out.println(line);
+                appData = new AppDataModel();
+                allFields = line.split("\\t");
+                appData.setFirstName(allFields[0]);
+                appData.setMInitial(allFields[1]);
+                appData.setLastName(allFields[2]);
+                appData.setAddrLine1(allFields[3]);
+                appData.setAddrLine2(allFields[4]);
+                appData.setCity(allFields[5]);
+                appData.setState(allFields[6]);
+                appData.setZipCode(allFields[7]);
+                appData.setPhone(allFields[8]);
+                appData.setEmail(allFields[9]);
+                appData.setDateReceived(allFields[10]);
+                appData.setPoa(Boolean.valueOf(allFields[11]));
+                
+                appDataList.add(appData);
+                
+            }   
+
+            // Always close files.
+            bufferedReader.close(); 
+        } catch(FileNotFoundException ex) {
+            System.out.println(
+                "Unable to open file '" + 
+                FILE_NAME + "'"); 
+            return null;
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error reading file '" 
+                + FILE_NAME + "'");
+            // Or we could just do this: 
+            // ex.printStackTrace();
+            return null;
+        }
+       
+       /*read data from file line by line*/
+       
+       return appDataList;
+   }
    
    //remove the entry from file that contains the name specified
    /*   I am gonna do this
