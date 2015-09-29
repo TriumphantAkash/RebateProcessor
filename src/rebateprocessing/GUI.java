@@ -322,8 +322,10 @@ public class GUI extends javax.swing.JFrame {
         RebateProcessingController rebateProcessingController = new RebateProcessingController();
         if (rebateProcessingController.addData(appDataModel)) {
             System.out.println("data written in file");
+            //show a message in dialogue box as well
         }else {
             System.out.println("something went wrong while writing data to file");
+            //show an error messge to user as well
         }
                 
         

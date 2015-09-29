@@ -21,6 +21,8 @@ class FileHandler {
    
     private static final String FILE_NAME = "rebate_processing_data_file.txt";
     
+    
+    //data object is passed to this function, it writes the data to file
     public static boolean writeData(AppDataModel appDataModel) {
         
         String data = appDataModel.getFirstName()
