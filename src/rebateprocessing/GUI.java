@@ -14,11 +14,15 @@ import java.awt.Font;
  */
 public class GUI extends javax.swing.JFrame {
 
+    RebateProcessingController rebateProcessingController;
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        
+        //initialize an object of controller class
+        rebateProcessingController = new RebateProcessingController();
     }
 
     /**
@@ -319,7 +323,6 @@ public class GUI extends javax.swing.JFrame {
         appDataModel.setPoa(POAattached.isSelected());
         
         //pass this object to the controller (RebateProcessingController class)
-        RebateProcessingController rebateProcessingController = new RebateProcessingController();
         if (rebateProcessingController.addData(appDataModel)) {
             System.out.println("data written in file");
             //show a message in dialogue box as well
