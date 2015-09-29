@@ -17,16 +17,12 @@ import java.io.IOException;
  *
  * @author achaturvedi
  */
-public class FileHandler {
-      
-    private File fileInstance;
-    
-    FileHandler() {
-        fileInstance = GlobalFileManager.getFileInstance();
-    }
+class FileHandler {
+   
+    private static final String FILE_NAME = "rebate_processing_data_file.txt";
     
     public static boolean writeData(AppDataModel appDataModel) {
-        //write file handling specific functions
+        
         String data = appDataModel.getFirstName()
                 +"\t"
                 +appDataModel.getMInitial()
@@ -42,7 +38,7 @@ public class FileHandler {
                 +appDataModel.getState()
                 +"\t"
                 +appDataModel.getZipCode()
-                +"\t"
+                    +"\t"
                 +appDataModel.getPhone()
                 +"\t"
                 +appDataModel.getEmail()
@@ -54,7 +50,7 @@ public class FileHandler {
         try {
             // Assume default encoding.
             FileWriter fileWriter =
-                new FileWriter(fileInstance);
+                new FileWriter(FILE_NAME, true);
 
             // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter =
@@ -71,7 +67,7 @@ public class FileHandler {
         catch(IOException ex) {
             System.out.println(
                 "Error writing to file '"
-                + fileInstance + "'");
+                + FILE_NAME + "'");
             return false;
             // Or we could just do this:
             // ex.printStackTrace();
@@ -81,13 +77,13 @@ public class FileHandler {
         return true;
     }
     
-    AppDataModel readData( String fullName) {
+   public static AppDataModel readData( String fullName) {
         AppDataModel appData = new AppDataModel();
         //read from the file and store the data in appData object
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
-                new FileReader(fileInstance);
+                new FileReader(FILE_NAME);
 
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = 
@@ -103,13 +99,13 @@ public class FileHandler {
         } catch(FileNotFoundException ex) {
             System.out.println(
                 "Unable to open file '" + 
-                fileInstance + "'"); 
+                FILE_NAME + "'"); 
             return null;
         }
         catch(IOException ex) {
             System.out.println(
                 "Error reading file '" 
-                + fileInstance + "'");                  
+                + FILE_NAME + "'");
             // Or we could just do this: 
             // ex.printStackTrace();
             return null;
