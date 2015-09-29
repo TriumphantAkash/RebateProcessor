@@ -31,7 +31,9 @@ public class RebateProcessingController {
  }
  
  //boolean deleteData()
-
+ boolean deleteData(String fullName) {
+     return FileHandler.deleteData(fullName);
+ }
    
     
 }

@@ -159,11 +159,13 @@ class FileHandler {
                 if(line.startsWith(fullName)){  //don't write this line to new file
                 }else{ //write line to this new file
                     bufferedWriter.write(line);
+                    bufferedWriter.newLine();
                 }
             }
             
             /**********************************/
-            
+            bufferedReader.close();
+            bufferedWriter.close();
             
            
        }catch(FileNotFoundException ex) {

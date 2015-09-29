@@ -140,6 +140,11 @@ public class GUI extends javax.swing.JFrame {
         editButton.setText("Edit");
 
         deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -341,6 +346,16 @@ public class GUI extends javax.swing.JFrame {
     private void POAattachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_POAattachedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_POAattachedActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        //pass full name to controller
+        String fullName = firstName.getText() + middleInitial.getText() + lastName.getText();
+        if(rebateProcessingController.deleteData(fullName)){
+            System.out.println("data deleted");
+        }else {
+            System.out.println("data not deleted, some error occured!");
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     /**
      * @param args the command line arguments
