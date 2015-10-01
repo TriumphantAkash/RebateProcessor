@@ -330,7 +330,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_lastNameActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+
         /*get all the data from the text fields from here
         make an object of AppDataModel class
         initialize this object with data read from the fields
@@ -359,6 +359,10 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             //show a message in dialogue box as well
              /*Also, we need to update the data here that is feeded to phone number and name dropdowns
                 need not to call File Handler functions, just need to add the recently added item in the lists*/
+            appDataList.add(appDataModel);
+            
+            //akso, update the dropdown(combo box) list
+             phoneNumCombo.addItem(appDataList.get(appDataList.size()-1).getFirstName() + " " + appDataList.get(appDataList.size()-1).getMInitial() + " " + appDataList.get(appDataList.size()-1).getLastName() + " | " +(appDataList.get(appDataList.size()-1)).getPhone());
         }else {
             System.out.println("something went wrong while writing data to file");
             //show an error messge to user as well
@@ -404,6 +408,13 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             middleInitial.setText(appDataList.get(index).getMInitial());
             lastName.setText(appDataList.get(index).getLastName());
             POAattached.setSelected(appDataList.get(index).getPoa());
+            addressLine1.setText(appDataList.get(index).getAddrLine1());
+            addressLine2.setText(appDataList.get(index).getAddrLine2());
+            city.setText(appDataList.get(index).getCity());
+            state.setText(appDataList.get(index).getState());
+            phoneNumber.setText(appDataList.get(index).getPhone());
+            emailAddress.setText(appDataList.get(index).getEmail());
+            dateReceived.setText(appDataList.get(index).getDateReceived());
         }
     }
     
