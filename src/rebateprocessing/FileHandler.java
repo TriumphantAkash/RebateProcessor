@@ -26,13 +26,6 @@ class FileHandler {
     
     //data object is passed to this function, it writes the data to file
     public static boolean writeData(AppDataModel appDataModel) {
-        
-        //first varify the data, i.e. another record with the same name already exist then return false from here
-        String fullName = appDataModel.getFirstName()+"\t"+appDataModel.getMInitial()+"\t"+appDataModel.getLastName();
-        if(varifyDuplicate(fullName)){
-            return false;
-        }
-        
         String data = appDataModel.getFirstName()
                 +"\t"
                 +appDataModel.getMInitial()

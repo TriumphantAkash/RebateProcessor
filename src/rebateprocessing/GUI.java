@@ -412,6 +412,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             phoneNumber.setText("");
             emailAddress.setText("");
             dateReceived.setText("");
+            phoneNumCombo.setSelectedIndex(0);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     
