@@ -382,7 +382,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         //pass full name to controller
-        String fullName = firstName.getText() + middleInitial.getText() + lastName.getText();
+        String fullName = firstName.getText() + "\t" + middleInitial.getText() + "\t" + lastName.getText();
         if(rebateProcessingController.deleteData(fullName)){
             System.out.println("data deleted");
         }else {
