@@ -19,19 +19,17 @@ import java.io.File;
 public class RebateProcessingController {
     
  //this function will first check the validity of data, then pass it to File handler class   
- boolean addData(AppDataModel appDataModel) {
+ ResponseEnum.Response addData(AppDataModel appDataModel) {
      //validate the data, if validation issues then return false from here itself 
      String fullName = appDataModel.getFirstName()+"\t"+appDataModel.getMInitial()+"\t"+appDataModel.getLastName();
-     if(FileHandler.varifyDuplicate(fullName)) {
+     if((FileHandler.varifyDuplicate(fullName) == ResponseEnum.Response.OK) || (FileHandler.varifyDuplicate(fullName) == ResponseEnum.Response.FILENOTFOUND)) {
          return FileHandler.writeData(appDataModel);
      }else {
          System.out.println("can not enter duplicate data");
-         return false;  //may be some enum to represent error type
+         return ResponseEnum.Response.DUPLICATEENTRY;  //may be some enum to represent error type
      }
      //if validation ok then call addData function in the FileHandler class
     // FileHandler fileHandler = new FileHandler();
-     
-     
      
  }
  

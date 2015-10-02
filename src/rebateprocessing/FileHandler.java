@@ -25,7 +25,7 @@ class FileHandler {
     
     
     //data object is passed to this function, it writes the data to file
-    public static boolean writeData(AppDataModel appDataModel) {
+    public static ResponseEnum.Response writeData(AppDataModel appDataModel) {
               
         String data = appDataModel.getFirstName()
                 +"\t"
@@ -72,16 +72,16 @@ class FileHandler {
             System.out.println(
                 "Error writing to file '"
                 + FILE_NAME + "'");
-            return false;
+            return ResponseEnum.Response.FILEWRITEERROR;
             // Or we could just do this:
             // ex.printStackTrace();
         }
         
         //if written correctly, then 
-        return true;
+        return ResponseEnum.Response.OK;
     }
     
-   public static boolean varifyDuplicate( String fullName) {
+   public static ResponseEnum.Response varifyDuplicate( String fullName) {
         AppDataModel appData = new AppDataModel();
         //read from the file and store the data in appData object
         try {
@@ -96,7 +96,7 @@ class FileHandler {
             
             while((line = bufferedReader.readLine()) != null) {
                 if(line.contains(fullName)){
-                    return false;
+                    return ResponseEnum.Response.DUPLICATEENTRY;
                 }
             }   
 
@@ -106,7 +106,7 @@ class FileHandler {
             System.out.println(
                 "Unable to open file '" + 
                 FILE_NAME + "'"); 
-            return false;
+            return ResponseEnum.Response.FILENOTFOUND;
         }
         catch(IOException ex) {
             System.out.println(
@@ -114,10 +114,10 @@ class FileHandler {
                 + FILE_NAME + "'");
             // Or we could just do this: 
             // ex.printStackTrace();
-            return false;
+            return ResponseEnum.Response.FILENOTFOUND;
         }
         
-        return true;
+        return ResponseEnum.Response.OK;
     }
    
    /*called by GUI as soon as program loads, cuz GUI needs this data to show in the Dropdown for phone numenr and name*/

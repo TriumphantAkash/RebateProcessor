@@ -22,7 +22,7 @@ public class GUI extends javax.swing.JFrame {
     
     RebateProcessingController rebateProcessingController;
     
-    ArrayList<AppDataModel> appDataList;
+    ArrayList<AppDataModel> appDataList = new ArrayList<>();
     /**
      * Creates new form GUI
      */
@@ -31,7 +31,9 @@ public class GUI extends javax.swing.JFrame {
         
         //
         //load File data and initialize the GUI components (phone numebr and Name dropdown with them)
-        appDataList = FileHandler.loadAllData();
+        if(FileHandler.loadAllData() != null) {
+            appDataList = FileHandler.loadAllData();
+        }
         
         initComponents();
         
@@ -359,7 +361,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
         appDataModel.setPoa(POAattached.isSelected());
         
         //pass this object to the controller (RebateProcessingController class)
-        if (rebateProcessingController.addData(appDataModel)) {
+        if (rebateProcessingController.addData(appDataModel) == ResponseEnum.Response.OK) {
             System.out.println("data written in file");
             //show a message in dialogue box as well
              /*Also, we need to update the data here that is feeded to phone number and name dropdowns
@@ -385,6 +387,25 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
         String fullName = firstName.getText() + "\t" + middleInitial.getText() + "\t" + lastName.getText();
         if(rebateProcessingController.deleteData(fullName)){
             System.out.println("data deleted");
+            //delete this record from the dropdown and the appDataList as well
+            appDataList.remove(phoneNumCombo.getSelectedIndex() - 1);
+            phoneNumCombo.removeItemAt(phoneNumCombo.getSelectedIndex());
+            //set combo box todefault value and clear the fields
+            phoneNumCombo.setSelectedIndex(0);
+              firstName.setText("");
+            middleInitial.setText("");
+            lastName.setText("");
+            POAattached.setSelected(false);
+            addressLine1.setText("");
+            addressLine2.setText("");
+            city.setText("");
+            state.setText("");
+            zipCode.setText("");
+            phoneNumber.setText("");
+            emailAddress.setText("");
+            dateReceived.setText("");
+            
+            
         }else {
             System.out.println("data not deleted, some error occured!");
         }
@@ -424,6 +445,15 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             firstName.setText("");
             middleInitial.setText("");
             lastName.setText("");
+            POAattached.setSelected(false);
+            addressLine1.setText("");
+            addressLine2.setText("");
+            city.setText("");
+            state.setText("");
+            zipCode.setText("");
+            phoneNumber.setText("");
+            emailAddress.setText("");
+            dateReceived.setText("");
         }else {
             index--;    //because the data actually starts from the first index in the comboBox list, but not in the appDataList
             firstName.setText(appDataList.get(index).getFirstName());

@@ -15,6 +15,6 @@ public class ResponseEnum {
      *
      */
      enum Response {
-        OK, FILENOTFOUND, DUPLICATEENTRY
+        OK, FILENOTFOUND, DUPLICATEENTRY, FILEWRITEERROR
     }
 }
