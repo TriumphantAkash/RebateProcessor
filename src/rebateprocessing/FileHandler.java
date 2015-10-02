@@ -27,6 +27,12 @@ class FileHandler {
     //data object is passed to this function, it writes the data to file
     public static boolean writeData(AppDataModel appDataModel) {
         
+        //first varify the data, i.e. another record with the same name already exist then return false from here
+        String fullName = appDataModel.getFirstName()+"\t"+appDataModel.getMInitial()+"\t"+appDataModel.getLastName();
+        if(varifyDuplicate(fullName)){
+            return false;
+        }
+        
         String data = appDataModel.getFirstName()
                 +"\t"
                 +appDataModel.getMInitial()
@@ -81,7 +87,7 @@ class FileHandler {
         return true;
     }
     
-   public static AppDataModel readData( String fullName) {
+   public static boolean varifyDuplicate( String fullName) {
         AppDataModel appData = new AppDataModel();
         //read from the file and store the data in appData object
         try {
@@ -95,7 +101,9 @@ class FileHandler {
             String line;
             
             while((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
+                if(line.startsWith(fullName)){
+                    return false;
+                }
             }   
 
             // Always close files.
@@ -104,7 +112,7 @@ class FileHandler {
             System.out.println(
                 "Unable to open file '" + 
                 FILE_NAME + "'"); 
-            return null;
+            return false;
         }
         catch(IOException ex) {
             System.out.println(
@@ -112,10 +120,10 @@ class FileHandler {
                 + FILE_NAME + "'");
             // Or we could just do this: 
             // ex.printStackTrace();
-            return null;
+            return false;
         }
         
-        return appData;
+        return true;
     }
    
    /*called by GUI as soon as program loads, cuz GUI needs this data to show in the Dropdown for phone numenr and name*/

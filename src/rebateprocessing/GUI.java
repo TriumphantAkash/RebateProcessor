@@ -148,6 +148,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         deleteButton.setText("Delete this record");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -249,13 +254,14 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
                     .addGap(5, 5, 5)
                     .addComponent(pageHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(18, 18, 18)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(firstNameLabel)
-                .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(middleInitialLabel)
-                .addComponent(middleInitial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(lastNameLabel)
-                .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(firstName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel)
+                    .addComponent(middleInitialLabel)
+                    .addComponent(middleInitial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameLabel)
+                    .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(18, 18, 18)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(addressLine1Label)
@@ -391,6 +397,22 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
         fillData(phoneNumCombo.getSelectedIndex());
         
     }//GEN-LAST:event_phoneNumComboActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // clear all the fields
+        firstName.setText("");
+            middleInitial.setText("");
+            lastName.setText("");
+            POAattached.setSelected(false);
+            addressLine1.setText("");
+            addressLine2.setText("");
+            city.setText("");
+            state.setText("");
+            zipCode.setText("");
+            phoneNumber.setText("");
+            emailAddress.setText("");
+            dateReceived.setText("");
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     
     //function to fill the data in the GUI fields based on the item selected
