@@ -237,12 +237,21 @@ class FileHandler {
             
             /*delete old file and rename the new file to old file name*/
             File file = new File(FILE_NAME);
-            file.delete();
+            if(file.delete()){
+                System.out.println("file deleted");
+            }else {
+                System.out.println("file not deleted");
+            }
             
             File newFile = new File(TEMP_FILE);
-            if (newFile.exists()) {
-                newFile.renameTo(file);
-            }
+           // if (newFile.exists()) {
+                
+                if(newFile.renameTo(file)){
+                    System.out.println("file renamed");
+                }else{
+                    System.out.println("file not renamed");
+                }
+            //}
             
             
            
