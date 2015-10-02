@@ -9,6 +9,8 @@ package rebateprocessing;
 import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -56,6 +58,8 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jDialog2 = new javax.swing.JDialog();
         firstName = new javax.swing.JTextField();
         lastName = new javax.swing.JTextField();
         middleInitial = new javax.swing.JTextField();
@@ -85,6 +89,28 @@ public class GUI extends javax.swing.JFrame {
         deleteButton = new javax.swing.JButton();
         phoneNumCombo = new javax.swing.JComboBox();
         modifyRecord = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -378,6 +404,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
         //pass this object to the controller (RebateProcessingController class)
         if (rebateProcessingController.addData(appDataModel) == ResponseEnum.Response.OK) {
             System.out.println("data written in file");
+            JOptionPane.showMessageDialog(null, "data written in file");
             //show a message in dialogue box as well
              /*Also, we need to update the data here that is feeded to phone number and name dropdowns
                 need not to call File Handler functions, just need to add the recently added item in the lists*/
@@ -386,6 +413,9 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             //akso, update the dropdown(combo box) list
              phoneNumCombo.addItem(appDataList.get(appDataList.size()-1).getFirstName() + " " + appDataList.get(appDataList.size()-1).getMInitial() + " " + appDataList.get(appDataList.size()-1).getLastName() + " | " +(appDataList.get(appDataList.size()-1)).getPhone());
         }else {
+            final JPanel panel = new JPanel();
+            JOptionPane.showMessageDialog(panel, "incorrect/duplicate data", "Error",
+        JOptionPane.WARNING_MESSAGE);
             System.out.println("something went wrong while writing data to file");
             //show an error messge to user as well
         }
@@ -419,10 +449,13 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             phoneNumber.setText("");
             emailAddress.setText("");
             dateReceived.setText("");
-            
+            JOptionPane.showMessageDialog(null, "data depeted successfully");
             
         }else {
             System.out.println("data not deleted, some error occured!");
+            final JPanel panel = new JPanel();
+            JOptionPane.showMessageDialog(panel, "error in deleting data", "Error",
+        JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
@@ -485,6 +518,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             phoneNumCombo.addItem(appDataList.get(i).getFirstName() + " " + appDataList.get(i).getMInitial() + " " + appDataList.get(i).getLastName() + " | " +(appDataList.get(i)).getPhone());
         }
     }
+        JOptionPane.showMessageDialog(null, "data modified successfully");
     
     }//GEN-LAST:event_modifyRecordActionPerformed
 
@@ -575,6 +609,8 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JTextField emailAddress;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
