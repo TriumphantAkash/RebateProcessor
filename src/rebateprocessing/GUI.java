@@ -84,6 +84,7 @@ public class GUI extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         phoneNumCombo = new javax.swing.JComboBox();
+        modifyRecord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,7 +143,7 @@ public class GUI extends javax.swing.JFrame {
 
         pageHeading.setText("REBATE PROCESSING TOOL");
 
-        addButton.setText("Add a record");
+        addButton.setText("Add Record");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
@@ -168,6 +169,13 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
     public void actionPerformed(java.awt.event.ActionEvent evt) {
         phoneNumComboActionPerformed(evt);
     }
+    });
+
+    modifyRecord.setText("Modify Record");
+    modifyRecord.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            modifyRecordActionPerformed(evt);
+        }
     });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,6 +205,10 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
                     .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
+                            .addGap(62, 62, 62)
+                            .addComponent(POAattached)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
                             .addGap(31, 31, 31)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
@@ -210,12 +222,10 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
                                             .addComponent(phoneNumCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(152, 152, 152))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(62, 62, 62)
-                            .addComponent(POAattached)
-                            .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(modifyRecord, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cancelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -298,7 +308,9 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(dateReceived, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1))
                     .addGap(30, 30, 30)))
-            .addComponent(addButton)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(addButton)
+                .addComponent(modifyRecord))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(deleteButton)
@@ -345,6 +357,9 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
         
         //first create object of AppDataModel class
         AppDataModel appDataModel = new AppDataModel();
+        
+        //get the record number using File Handler's function and store that record number into our appDataModel
+        appDataModel.setRecordNum(FileHandler.getLatestRecordNum()+1);
         
         //now feed this object with the input values
         appDataModel.setLastName(lastName.getText());
@@ -436,6 +451,43 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             phoneNumCombo.setSelectedIndex(0);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void modifyRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyRecordActionPerformed
+        // create an AppDataModel object with the same record number as selected,and rest of the values as filled in the fields by user
+        AppDataModel appDataModel = new AppDataModel();
+        appDataModel.setRecordNum(appDataList.get(phoneNumCombo.getSelectedIndex()-1).getRecordNum());
+        appDataModel.setLastName(lastName.getText());
+        appDataModel.setFirstName(firstName.getText());
+        appDataModel.setMInitial(middleInitial.getText());
+        appDataModel.setAddrLine1(addressLine1.getText());
+        appDataModel.setAddrLine2(addressLine2.getText());
+        appDataModel.setCity(city.getText());
+        appDataModel.setState(state.getText());
+        appDataModel.setZipCode(zipCode.getText());
+        appDataModel.setPhone(phoneNumber.getText());
+        appDataModel.setEmail(emailAddress.getText());
+        appDataModel.setDateReceived(dateReceived.getText());
+        appDataModel.setPoa(POAattached.isSelected());
+        
+        //pass this object to the File Handler modify function
+        FileHandler.modifyData(appDataModel);
+        
+        //also update your local appDataList and phoneNumDropDown
+        appDataList.set(phoneNumCombo.getSelectedIndex()-1, appDataModel);
+        
+        //now remove all items from combo and feed new modified arraylist to the combo
+        int itemCount = phoneNumCombo.getItemCount();
+
+      phoneNumCombo.removeAllItems();
+                
+        phoneNumCombo.addItem("      ****select a record from list****");
+        if(appDataList != null){
+        for (int i = 0;i<appDataList.size();i++) {
+            phoneNumCombo.addItem(appDataList.get(i).getFirstName() + " " + appDataList.get(i).getMInitial() + " " + appDataList.get(i).getLastName() + " | " +(appDataList.get(i)).getPhone());
+        }
+    }
+    
+    }//GEN-LAST:event_modifyRecordActionPerformed
+
     
     //function to fill the data in the GUI fields based on the item selected
     private void fillData(int index)
@@ -456,6 +508,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             dateReceived.setText("");
         }else {
             index--;    //because the data actually starts from the first index in the comboBox list, but not in the appDataList
+            if(index>=0){
             firstName.setText(appDataList.get(index).getFirstName());
             middleInitial.setText(appDataList.get(index).getMInitial());
             lastName.setText(appDataList.get(index).getLastName());
@@ -468,6 +521,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             phoneNumber.setText(appDataList.get(index).getPhone());
             emailAddress.setText(appDataList.get(index).getEmail());
             dateReceived.setText(appDataList.get(index).getDateReceived());
+            }
         }
     }
     
@@ -528,6 +582,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField middleInitial;
     private javax.swing.JLabel middleInitialLabel;
+    private javax.swing.JButton modifyRecord;
     private javax.swing.JLabel pageHeading;
     private javax.swing.JComboBox phoneNumCombo;
     private javax.swing.JTextField phoneNumber;

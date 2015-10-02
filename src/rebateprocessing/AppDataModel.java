@@ -26,6 +26,9 @@ public class AppDataModel {
     
     
 //setters
+    public void setRecordNum(int recordNum){
+        this.recordNum = recordNum;
+    }
     public void setFirstName(String firstName){
         this.firstName = firstName;
     }
@@ -111,5 +114,9 @@ public class AppDataModel {
     
     public boolean getPoa() {
         return this.poa;
+    }
+    
+    public int getRecordNum() {
+        return this.recordNum;
     }
 }

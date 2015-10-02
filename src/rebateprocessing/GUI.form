@@ -48,7 +48,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="state" min="-2" pref="57" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="POAattached" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -65,16 +70,14 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="cancelButton" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="modifyRecord" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cancelButton" alignment="0" pref="125" max="32767" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                              <Component id="POAattached" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -186,7 +189,10 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="addButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="addButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="modifyRecord" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -307,7 +313,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="addButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add a record"/>
+        <Property name="text" type="java.lang.String" value="Add Record"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonActionPerformed"/>
@@ -341,6 +347,14 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="phoneNumCombo.addItem(&quot;      ****select a record from list****&quot;);&#xa;//phoneNumCombo.addItem(&quot;469-774-6884&quot;);&#xa;//phoneNumCombo.addItem(&quot;404-345-6258&quot;);&#xa;if(appDataList != null){&#xa;    for (int i = 0;i&lt;appDataList.size();i++) {&#xa;        phoneNumCombo.addItem(appDataList.get(i).getFirstName() + &quot; &quot; + appDataList.get(i).getMInitial() + &quot; &quot; + appDataList.get(i).getLastName() + &quot; | &quot; +(appDataList.get(i)).getPhone());&#xa;    }&#xa;}&#xa;//phoneNumCombo.setSelectedItem(&quot;&quot;);"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="modifyRecord">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modify Record"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modifyRecordActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

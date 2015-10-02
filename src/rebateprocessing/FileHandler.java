@@ -22,12 +22,15 @@ class FileHandler {
    
     private static final String FILE_NAME = "rebate_processing_data_file.txt";
     private static final String TEMP_FILE = "temp420.txt";
+    private static final String MOD_FILE = "temp421.txt";
     
     
     //data object is passed to this function, it writes the data to file
     public static ResponseEnum.Response writeData(AppDataModel appDataModel) {
               
-        String data = appDataModel.getFirstName()
+        String data = appDataModel.getRecordNum()
+                +"\t"
+                +appDataModel.getFirstName()
                 +"\t"
                 +appDataModel.getMInitial()
                 +"\t"
@@ -125,7 +128,7 @@ class FileHandler {
        ArrayList<AppDataModel> appDataList = new ArrayList();
        /* a temporary variables */
        AppDataModel appData;
-       String[] allFields = new String[12];
+       String[] allFields = new String[13];
        
        /**/
        try {
@@ -142,18 +145,19 @@ class FileHandler {
                 //System.out.println(line);
                 appData = new AppDataModel();
                 allFields = line.split("\\t");
-                appData.setFirstName(allFields[0]);
-                appData.setMInitial(allFields[1]);
-                appData.setLastName(allFields[2]);
-                appData.setAddrLine1(allFields[3]);
-                appData.setAddrLine2(allFields[4]);
-                appData.setCity(allFields[5]);
-                appData.setState(allFields[6]);
-                appData.setZipCode(allFields[7]);
-                appData.setPhone(allFields[8]);
-                appData.setEmail(allFields[9]);
-                appData.setDateReceived(allFields[10]);
-                appData.setPoa(Boolean.valueOf(allFields[11]));
+                appData.setRecordNum(Integer.parseInt(allFields[0]));
+                appData.setFirstName(allFields[1]);
+                appData.setMInitial(allFields[2]);
+                appData.setLastName(allFields[3]);
+                appData.setAddrLine1(allFields[4]);
+                appData.setAddrLine2(allFields[5]);
+                appData.setCity(allFields[6]);
+                appData.setState(allFields[7]);
+                appData.setZipCode(allFields[8]);
+                appData.setPhone(allFields[9]);
+                appData.setEmail(allFields[10]);
+                appData.setDateReceived(allFields[11]);
+                appData.setPoa(Boolean.valueOf(allFields[12]));
                 
                 appDataList.add(appData);
                 
@@ -260,17 +264,134 @@ class FileHandler {
        return true;
    }
     
-    boolean modifyData(String fullName) {
+   public static boolean modifyData(AppDataModel appDataModel) {
         //modify the data based on the parameter passed
         
-        
-        //return true or fales based on the action done successfully
-        return true;
+       try {
+           
+           FileReader fileReader = 
+                new FileReader(FILE_NAME);
+                
+           // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = 
+                new BufferedReader(fileReader);
+           
+           /********************************/
+            // Assume default encoding.
+            FileWriter fileWriter =
+                new FileWriter(MOD_FILE, true);
+
+            // Always wrap FileWriter in BufferedWriter.
+            BufferedWriter bufferedWriter =
+                new BufferedWriter(fileWriter);
+            
+            
+            /*********************************/
+              String line;
+            
+            while((line = bufferedReader.readLine()) != null) {
+                if(line.contains(appDataModel.getRecordNum()+"\t")){  //change this line with the content of appDataModel and write to file
+                    line = appDataModel.getRecordNum()
+                +"\t"
+                +appDataModel.getFirstName()
+                +"\t"
+                +appDataModel.getMInitial()
+                +"\t"
+                +appDataModel.getLastName()
+                +"\t"
+                +appDataModel.getAddrLine1()
+                +"\t"
+                +appDataModel.getAddrLine2()
+                +"\t"
+                +appDataModel.getCity()
+                +"\t"
+                +appDataModel.getState()
+                +"\t"
+                +appDataModel.getZipCode()
+                    +"\t"
+                +appDataModel.getPhone()
+                +"\t"
+                +appDataModel.getEmail()
+                +"\t"
+                +appDataModel.getDateReceived()
+                +"\t"
+                +appDataModel.getPoa();
+                    
+                    bufferedWriter.write(line);
+                    bufferedWriter.newLine();
+                    
+                }else{ //write line to this new file
+                    bufferedWriter.write(line);
+                    bufferedWriter.newLine();
+                }
+            }
+            
+            /**********************************/
+            bufferedReader.close();
+            bufferedWriter.close();
+            
+            /*delete old file and rename the new file to old file name*/
+            File file = new File(FILE_NAME);
+            file.delete();
+            
+            File newFile = new File(MOD_FILE);
+            if (newFile.exists()) {
+                newFile.renameTo(file);
+            }
+            
+            
+           
+       }catch(FileNotFoundException ex) {
+            System.out.println(
+                "Unable to open file '" + 
+                FILE_NAME + "'"); 
+            return false;
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error reading file '" 
+                + FILE_NAME + "'");
+            // Or we could just do this: 
+            // ex.printStackTrace();
+            return false;
+        }
+       
+       return true;
     }
     
-    int getLatestRecordNumber()
+    public static int getLatestRecordNum()
     {
+        String[] allFields = new String[13];
         int n = 0;
+        try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = 
+                new FileReader(FILE_NAME);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = 
+                new BufferedReader(fileReader);
+            String line;
+            
+            while((line = bufferedReader.readLine()) != null) {
+                allFields = line.split("\\t");
+                n = Integer.parseInt(allFields[0]);
+            }
+            
+        }catch(FileNotFoundException ex) {
+            System.out.println(
+                "Unable to open file '" + 
+                FILE_NAME + "'"); 
+            return 0;
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error reading file '" 
+                + FILE_NAME + "'");
+            // Or we could just do this: 
+            // ex.printStackTrace();
+            return 0;
+        }
         return n;
     }
     
