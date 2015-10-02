@@ -10,6 +10,7 @@ package rebateprocessing;
  * @author achaturvedi
  */
 public class AppDataModel {
+    private int recordNum;
     private String firstName;
     private String mInitial;
     private String lastName;

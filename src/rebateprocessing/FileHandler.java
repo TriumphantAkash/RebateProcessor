@@ -26,6 +26,7 @@ class FileHandler {
     
     //data object is passed to this function, it writes the data to file
     public static boolean writeData(AppDataModel appDataModel) {
+              
         String data = appDataModel.getFirstName()
                 +"\t"
                 +appDataModel.getMInitial()
@@ -94,7 +95,7 @@ class FileHandler {
             String line;
             
             while((line = bufferedReader.readLine()) != null) {
-                if(line.startsWith(fullName)){
+                if(line.contains(fullName)){
                     return false;
                 }
             }   
@@ -219,7 +220,7 @@ class FileHandler {
               String line;
             
             while((line = bufferedReader.readLine()) != null) {
-                if(line.startsWith(fullName)){  //don't write this line to new file
+                if(line.contains(fullName)){  //don't write this line to new file
                 }else{ //write line to this new file
                     bufferedWriter.write(line);
                     bufferedWriter.newLine();
@@ -265,6 +266,12 @@ class FileHandler {
         
         //return true or fales based on the action done successfully
         return true;
+    }
+    
+    int getLatestRecordNumber()
+    {
+        int n = 0;
+        return n;
     }
     
 }
