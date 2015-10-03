@@ -6,6 +6,7 @@
 package rebateprocessing;
 
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -419,23 +420,34 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel3.setText("phone *");
 
+        pageHeading.setBackground(Color.WHITE);
+        pageHeading.setFont(new java.awt.Font("Lucida Console", 1, 20));
+        pageHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pageHeading.setText("REBATE PROCESSING TOOL");
+        pageHeading.setBackground(Color.WHITE);
+        pageHeading.setOpaque(true);
 
+        addButton.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
         addButton.setText("Add Record");
+        addButton.setBackground(Color.GREEN);
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
 
+        cancelButton.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.setBackground(Color.WHITE);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
             }
         });
 
+        deleteButton.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
         deleteButton.setText("Delete this record");
+        deleteButton.setBackground(Color.RED);
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
@@ -449,7 +461,9 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
     }
     });
 
+    modifyRecord.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
     modifyRecord.setText("Modify Record");
+    modifyRecord.setBackground(Color.YELLOW);
     modifyRecord.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             modifyRecordActionPerformed(evt);
@@ -485,68 +499,64 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
                     .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(jLabel1)
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(dateReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jLabel4))))
+                        .addGroup(layout.createSequentialGroup()
                             .addGap(62, 62, 62)
-                            .addComponent(POAattached)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(31, 31, 31)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(pageHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(phoneNumCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(152, 152, 152))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(modifyRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(jLabel4))
-                                                .addComponent(dateReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 0, Short.MAX_VALUE))))))
-                .addGroup(layout.createSequentialGroup()
+                            .addComponent(POAattached)))
+                    .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(addressLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(addressLine2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(middleInitialLabel)))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(37, 37, 37)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(addressLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addressLine2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(firstName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 31, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(phoneNumber, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(emailAddress))
                             .addGap(80, 80, 80)))
+                    .addComponent(middleInitialLabel)
+                    .addGap(18, 18, 18)
                     .addComponent(middleInitial, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(40, 40, 40)
                     .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(427, 427, 427))))
+                    .addGap(392, 392, 392))))
+        .addGroup(layout.createSequentialGroup()
+            .addGap(266, 266, 266)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(deleteButton))
+            .addGap(106, 106, 106)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(modifyRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 0, Short.MAX_VALUE))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(phoneNumCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(95, 95, 95))
+        .addComponent(pageHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(27, 27, 27)
-                    .addComponent(phoneNumCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(5, 5, 5)
-                    .addComponent(pageHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGap(18, 18, 18)
+            .addGap(6, 6, 6)
+            .addComponent(pageHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(phoneNumCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(firstName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -592,16 +602,15 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             .addComponent(jLabel4)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(addButton)
-                .addComponent(modifyRecord))
+                .addComponent(modifyRecord)
+                .addComponent(cancelButton))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(deleteButton)
-                .addComponent(cancelButton))
-            .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(addButton))
+            .addContainerGap(29, Short.MAX_VALUE))
     );
 
-    pageHeading.setFont(new Font("Courier New", Font.BOLD, 18));
     phoneNumCombo.addItem("      ****select a record from list****");
     //phoneNumCombo.addItem("469-774-6884");
     //phoneNumCombo.addItem("404-345-6258");
@@ -692,6 +701,14 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_POAattachedActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        
+          if(!validateAllData()){
+            
+            JPanel panel = new JPanel();
+            JOptionPane.showMessageDialog(panel, "One or more fields with invalid data", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         //pass full name to controller
         String fullName = firstName.getText() + "\t" + middleInitial.getText() + "\t" + lastName.getText();
         if(rebateProcessingController.deleteData(fullName)){
@@ -755,6 +772,13 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             JPanel panel = new JPanel();
             JOptionPane.showMessageDialog(panel, "One or more fields with invalid data", "Error",
                         JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(phoneNumCombo.getSelectedIndex() == 0)
+        {
+             JPanel panel = new JPanel();
+            JOptionPane.showMessageDialog(panel, "No such data exist, need to add this data", "Error",
+                        JOptionPane.ERROR_MESSAGE); 
             return;
         }
         // create an AppDataModel object with the same record number as selected,and rest of the values as filled in the fields by user

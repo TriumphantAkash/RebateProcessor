@@ -1,4 +1,4 @@
-1	Akash	a	Chaturvedi	asd	asd	asd	as	asd	asdasdasd	asdasdasd	2015-10-02	false
-2	Bathla	a	asd	asd	asd	asd	as	asd	asdasdasd	asdasdasd	2015-10-02	false
-4	Mayank	a	Saankya	asd	asd	asd	as	asd	asdasdasd	asdasdasd	2015-10-02	false
-5	Bathla	a	Moumi	asd	asd	asd	as	asd	asdasdasd	asdasdasd	2015-10-02	false
+4	John	M	Cole	UT Dallas	Room 123	Richardson	TX	75050	8912345687	john.cole@utdallas.edu	2015-10-02	true
+5	Narada		Walker	UT Dallas		Richardson	TX	76565	7865675445	nrw140230@utdallas.edu	2015-10-02	false
+6	Lucas	m	Thomas	UT Dallas		Richardson	TX	76565	5699975499	lucas123@utdallas.edu	2015-10-02	false
+7	Lucas	m	Wyne	UT Dallas		Richardson	TX	76565	5699975499	lucas123@utdallas.edu	2015-10-02	false
