@@ -393,6 +393,9 @@ class FileHandler {
                 n = Integer.parseInt(allFields[0]);
             }
             
+            // Always close files.
+            bufferedReader.close(); 
+            
         }catch(FileNotFoundException ex) {
             System.out.println(
                 "Unable to open file '" + 

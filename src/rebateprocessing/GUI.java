@@ -713,7 +713,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             phoneNumber.setText("");
             emailAddress.setText("");
             dateReceived.setText("");
-            JOptionPane.showMessageDialog(null, "data depeted successfully");
+            JOptionPane.showMessageDialog(null, "data deleted successfully");
             
         }else {
             System.out.println("data not deleted, some error occured!");
