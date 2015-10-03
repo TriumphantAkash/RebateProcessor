@@ -124,21 +124,229 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        firstName.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(firstName.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+                if(firstName.getText().toString().length() > 20){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 20 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
         firstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameActionPerformed(evt);
             }
         });
 
+        lastName.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(lastName.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+                if(lastName.getText().toString().length() > 20){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 20 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
         lastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameActionPerformed(evt);
             }
         });
 
+        middleInitial.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(middleInitial.getText().toString().length() > 1){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 1 char", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
         middleInitial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 middleInitialActionPerformed(evt);
+            }
+        });
+
+        addressLine1.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(addressLine1.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+                if(addressLine1.getText().toString().length() > 35){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 35 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        addressLine2.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                if(addressLine2.getText().toString().length() > 35){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 35 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        city.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(city.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+                if(city.getText().toString().length() > 25){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 25 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        state.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(state.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+                if(state.getText().toString().length() > 2){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 2 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        zipCode.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(zipCode.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                }
+                if(zipCode.getText().toString().length() > 9){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 9 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        phoneNumber.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(phoneNumber.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                }
+                if(phoneNumber.getText().toString().length() > 21){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 9 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        emailAddress.addFocusListener(new FocusListener(){
+
+            @Override
+            public void focusGained(FocusEvent e){
+                //
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(emailAddress.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                }
+                if(emailAddress.getText().toString().length() > 60){
+                    JOptionPane.showMessageDialog(panel, "Field data length longer than 60 chars", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
 
@@ -153,11 +361,13 @@ public class GUI extends javax.swing.JFrame {
 
             @Override
             public void focusGained(FocusEvent e){
-                Date date = new Date();
-                String modifiedDate= new SimpleDateFormat("yyyy-MM-dd").format(date);
+                if(dateReceived.getText().toString().equals("")){
+                    Date date = new Date();
+                    String modifiedDate= new SimpleDateFormat("yyyy-MM-dd").format(date);
 
-                dateReceived.setText(modifiedDate);
-                System.out.println(modifiedDate);
+                    dateReceived.setText(modifiedDate);
+                    System.out.println(modifiedDate);
+                }
             }
 
             @Override
@@ -171,27 +381,27 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        firstNameLabel.setText("First Name");
+        firstNameLabel.setText("First Name *");
 
         middleInitialLabel.setText("Middle Initial");
 
-        lastNameLabel.setText("Last Name");
+        lastNameLabel.setText("Last Name *");
 
-        jLabel1.setText("Date Received");
+        jLabel1.setText("Date Received *");
 
-        eMailLabel.setText("eMail");
+        eMailLabel.setText("eMail *");
 
-        addressLine1Label.setText("Address Line 1");
+        addressLine1Label.setText("Address Line 1 *");
 
         jLabel2.setText("Address Line 2");
 
-        cityLabel.setText("City");
+        cityLabel.setText("City *");
 
-        stateLabel.setText("State");
+        stateLabel.setText("State *");
 
-        zipCodeLabel.setText("zip code");
+        zipCodeLabel.setText("zip code *");
 
-        jLabel3.setText("phone");
+        jLabel3.setText("phone *");
 
         pageHeading.setText("REBATE PROCESSING TOOL");
 
@@ -271,18 +481,17 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
                                     .addComponent(phoneNumCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(152, 152, 152))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(modifyRecord, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cancelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(modifyRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGap(48, 48, 48)
-                                            .addComponent(jLabel4))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(38, 38, 38)
-                                            .addComponent(dateReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jLabel1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(10, 10, 10)
+                                                    .addComponent(jLabel4))
+                                                .addComponent(dateReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(0, 0, Short.MAX_VALUE))))))
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,14 +510,12 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
                                 .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(phoneNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                .addComponent(phoneNumber, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(emailAddress))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel1)))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGap(80, 80, 80)))
                     .addComponent(middleInitial, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(48, 48, 48)
-                    .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(40, 40, 40)
+                    .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(427, 427, 427))))
