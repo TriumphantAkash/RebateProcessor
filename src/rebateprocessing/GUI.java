@@ -632,7 +632,13 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_lastNameActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-
+        
+        if(!validateAllData()){ //error case
+            JPanel panel = new JPanel();
+            JOptionPane.showMessageDialog(panel, "One or more fields with invalid data", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         /*get all the data from the text fields from here
         make an object of AppDataModel class
         initialize this object with data read from the fields
@@ -669,10 +675,11 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             
             //akso, update the dropdown(combo box) list
              phoneNumCombo.addItem(appDataList.get(appDataList.size()-1).getFirstName() + " " + appDataList.get(appDataList.size()-1).getMInitial() + " " + appDataList.get(appDataList.size()-1).getLastName() + " | " +(appDataList.get(appDataList.size()-1)).getPhone());
+             clearFields();
         }else {
             final JPanel panel = new JPanel();
             JOptionPane.showMessageDialog(panel, "incorrect/duplicate data", "Error",
-        JOptionPane.WARNING_MESSAGE);
+        JOptionPane.ERROR_MESSAGE);
             System.out.println("something went wrong while writing data to file");
             //show an error messge to user as well
         }
@@ -712,7 +719,7 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             System.out.println("data not deleted, some error occured!");
             final JPanel panel = new JPanel();
             JOptionPane.showMessageDialog(panel, "error in deleting data", "Error",
-        JOptionPane.WARNING_MESSAGE);
+        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
@@ -742,6 +749,14 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void modifyRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyRecordActionPerformed
+        
+        if(!validateAllData()){
+            
+            JPanel panel = new JPanel();
+            JOptionPane.showMessageDialog(panel, "One or more fields with invalid data", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         // create an AppDataModel object with the same record number as selected,and rest of the values as filled in the fields by user
         AppDataModel appDataModel = new AppDataModel();
         appDataModel.setRecordNum(appDataList.get(phoneNumCombo.getSelectedIndex()-1).getRecordNum());
@@ -814,6 +829,83 @@ phoneNumCombo.addActionListener(new java.awt.event.ActionListener() {
             dateReceived.setText(appDataList.get(index).getDateReceived());
             }
         }
+    }
+    
+    public boolean validateAllData()
+    {
+        if(firstName.getText().toString().equals("") || firstName.getText().toString().length() > 20){
+            firstName.setText("");
+            return false;
+        }
+        
+        if(middleInitial.getText().toString().length() > 1){
+            middleInitial.setText("");
+            return false;
+        }
+        
+        if(lastName.getText().toString().equals("") || lastName.getText().toString().length() > 20){
+            lastName.setText("");
+            return false;
+        }
+        
+        if(addressLine1.getText().toString().equals("") || addressLine1.getText().toString().length() > 35){
+            addressLine1.setText("");
+            return false;
+        }
+        
+        if(addressLine2.getText().toString().length() > 35){
+            addressLine2.setText("");
+            return false;
+        }
+        
+        if(city.getText().toString().equals("") || city.getText().toString().length() > 25){
+            city.setText("");
+            return false;
+        }
+        
+        if(state.getText().toString().equals("") || state.getText().toString().length() > 2){
+            state.setText("");
+            return false;
+        }
+        
+        if(zipCode.getText().toString().equals("") || zipCode.getText().toString().length() > 9){
+            zipCode.setText("");
+            return false;
+        }
+        
+        if(phoneNumber.getText().toString().equals("") || phoneNumber.getText().toString().length() > 21){
+            phoneNumber.setText("");
+            return false;
+        }
+        
+        if(emailAddress.getText().toString().equals("") || emailAddress.getText().toString().length() > 60){
+            emailAddress.setText("");
+            return false;
+        }
+        
+        if(dateReceived.getText().toString().equals("")){
+            return false;
+        }
+
+        
+        return true;
+    }
+    
+    public void clearFields()
+    {
+             phoneNumCombo.setSelectedIndex(0);
+             firstName.setText("");
+            middleInitial.setText("");
+            lastName.setText("");
+            POAattached.setSelected(false);
+            addressLine1.setText("");
+            addressLine2.setText("");
+            city.setText("");
+            state.setText("");
+            zipCode.setText("");
+            phoneNumber.setText("");
+            emailAddress.setText("");
+            dateReceived.setText("");
     }
     
     /**

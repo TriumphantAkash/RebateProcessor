@@ -143,6 +143,9 @@ class FileHandler {
             
             while((line = bufferedReader.readLine()) != null) {
                 //System.out.println(line);
+                if(line.equals("")){
+                    return null;
+                }
                 appData = new AppDataModel();
                 allFields = line.split("\\t");
                 appData.setRecordNum(Integer.parseInt(allFields[0]));
@@ -383,6 +386,9 @@ class FileHandler {
             String line;
             
             while((line = bufferedReader.readLine()) != null) {
+                if(line.equals("")){
+                    return 0;
+                }
                 allFields = line.split("\\t");
                 n = Integer.parseInt(allFields[0]);
             }
