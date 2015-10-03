@@ -142,6 +142,7 @@ public class GUI extends javax.swing.JFrame {
                 if(firstName.getText().toString().length() > 20){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 20 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    firstName.setText("");
                 }
             }
         });
@@ -169,6 +170,7 @@ public class GUI extends javax.swing.JFrame {
                 if(lastName.getText().toString().length() > 20){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 20 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    lastName.setText("");
                 }
             }
         });
@@ -192,6 +194,7 @@ public class GUI extends javax.swing.JFrame {
                 if(middleInitial.getText().toString().length() > 1){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 1 char", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    middleInitial.setText("");
                 }
             }
         });
@@ -219,6 +222,7 @@ public class GUI extends javax.swing.JFrame {
                 if(addressLine1.getText().toString().length() > 35){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 35 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    addressLine1.setText("");
                 }
             }
         });
@@ -236,6 +240,7 @@ public class GUI extends javax.swing.JFrame {
                 if(addressLine2.getText().toString().length() > 35){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 35 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    addressLine2.setText("");
                 }
             }
         });
@@ -258,6 +263,7 @@ public class GUI extends javax.swing.JFrame {
                 if(city.getText().toString().length() > 25){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 25 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    city.setText("");
                 }
             }
         });
@@ -280,6 +286,7 @@ public class GUI extends javax.swing.JFrame {
                 if(state.getText().toString().length() > 2){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 2 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    state.setText("");
                 }
             }
         });
@@ -302,6 +309,7 @@ public class GUI extends javax.swing.JFrame {
                 if(zipCode.getText().toString().length() > 9){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 9 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    zipCode.setText("");
                 }
             }
         });
@@ -324,6 +332,7 @@ public class GUI extends javax.swing.JFrame {
                 if(phoneNumber.getText().toString().length() > 21){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 9 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    phoneNumber.setText("");
                 }
             }
         });
@@ -346,6 +355,7 @@ public class GUI extends javax.swing.JFrame {
                 if(emailAddress.getText().toString().length() > 60){
                     JOptionPane.showMessageDialog(panel, "Field data length longer than 60 chars", "Error",
                         JOptionPane.WARNING_MESSAGE);
+                    emailAddress.setText("");
                 }
             }
         });
@@ -372,6 +382,12 @@ public class GUI extends javax.swing.JFrame {
 
             @Override
             public void focusLost(FocusEvent e) {
+                final JPanel panel = new JPanel();
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(dateReceived.getText().toString().equals("")){
+                    JOptionPane.showMessageDialog(panel, "Mendatory Field", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                }
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
